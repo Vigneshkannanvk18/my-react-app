@@ -97,6 +97,22 @@ const ROICalculator = () => {
           </ResponsiveContainer>
         )}
       </div>
+
+      {/* 📌 ROI Explanation Section */}
+      {selectedService && returnAmount !== null && (
+        <div style={styles.explanation}>
+          <h3>📌 Estimated Return Summary</h3>
+          <p>
+            You selected <strong>{selectedService}</strong>, which offers an average profit rate of <strong>{services[selectedService]}%</strong>.
+          </p>
+          <p>
+            Based on your investment of <strong>₹{Number(investment).toLocaleString()}</strong>, your expected profit is approximately <strong>₹{returnAmount.toFixed(2)}</strong>.
+          </p>
+          <p>
+            This estimate gives you a clear idea of the potential ROI for our <strong>{selectedService}</strong> service. Actual results may vary depending on engagement and strategy.
+          </p>
+        </div>
+      )}
     </div>
   );
 };
@@ -108,6 +124,7 @@ const styles = {
     gap: '2rem',
     justifyContent: 'center',
     padding: '2rem',
+    fontFamily: 'Arial, sans-serif',
   },
   container: {
     width: '350px',
@@ -115,7 +132,6 @@ const styles = {
     borderRadius: '12px',
     backgroundColor: '#f4f8fc',
     boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-    fontFamily: 'Arial, sans-serif',
   },
   chartBox: {
     width: '400px',
@@ -161,12 +177,25 @@ const styles = {
     border: 'none',
     borderRadius: '6px',
     cursor: 'pointer',
+    marginTop: '1rem',
   },
   result: {
     marginTop: '1.5rem',
     fontSize: '1.2rem',
     color: '#2e7d32',
     textAlign: 'center',
+  },
+  explanation: {
+    width: '100%',
+    maxWidth: '760px',
+    backgroundColor: '#e9f5ff',
+    padding: '1.5rem',
+    marginTop: '2rem',
+    borderRadius: '10px',
+    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
+    fontSize: '1rem',
+    color: '#333',
+    lineHeight: '1.6',
   },
 };
 

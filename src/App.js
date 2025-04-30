@@ -1,3 +1,4 @@
+import React from 'react';
 import ROICalculator from './components/ROICalculator';
 
 function App() {
